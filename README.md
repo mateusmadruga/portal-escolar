@@ -1,11 +1,11 @@
 # portal-escolar-di-
 # Colégio Horizonte — Portal Escolar Integrado
 
-> Primeiro Commit (v0.4-alpha): Estruturação inicial do front-end institucional, barra de acessibilidade funcional e protótipo da tela de acesso acadêmico.
+> Primeiro Commit (v0.5): Estruturação inicial do front-end institucional, barra de acessibilidade funcional e protótipo da tela de acesso acadêmico.
 
 O sistema une uma vitrine institucional pública: divulgação de segmentos de ensino, eventos, busca de disciplinas e contato. A uma área restrita de gestão acadêmica para alunos e professores.
 
-## Status Atual do Desenvolvimento (v0.5-alpha)
+## Status Atual do Desenvolvimento (v0.5)
 ### Implementado neste commit
 - Barra de Acessibilidade Persistente: Alternância entre Modo Claro e Modo Escuro e controle dinâmico de tamanho de fonte (A-, A, A+) com armazenamento das preferências no "localStorage".
 - Paleta de Cores Contrastante: Variáveis CSS configuradas para atender aos critérios de contraste da WCAG (nível AA/AAA) em ambos os temas.
