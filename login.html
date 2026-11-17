@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso ao Portal — Colégio Horizonte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+  <div class="a11y-bar" role="region" aria-label="Barra de acessibilidade">
+    <div class="container a11y-controls">
+      <a href="index.html" class="back-link">&larr; Voltar ao site institucional</a>
+      <div class="a11y-buttons">
+        <button type="button" id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
+        <button type="button" id="btn-font-reset" aria-label="Tamanho padrão">A</button>
+        <button type="button" id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
+        <button type="button" id="btn-theme-toggle" aria-label="Alternar tema"> Modo Escuro</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="login-wrapper">
+    <section class="login-card" aria-labelledby="login-heading">
+      <span class="tag-wip">Integração com API pendente</span>
+      <h1 id="login-heading">Portal Acadêmico</h1>
+      <p>Acesse o ambiente de notas, frequência e turmas.</p>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="perfil">Perfil de Acesso</label>
+          <select id="perfil" name="perfil">
+            <option value="aluno">Aluno(a)</option>
+            <option value="professor">Professor(a)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="matricula">Matrícula ou E-mail Institucional</label>
+          <input type="text" id="matricula" required placeholder="Ex: 20260145">
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn-primary full-width">Entrar no Sistema</button>
+        <p id="login-feedback" class="feedback-msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
