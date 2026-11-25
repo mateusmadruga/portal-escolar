@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colégio Horizonte — Portal Escolar (Em Desenvolvimento)</title>
+  <meta name="description" content="Portal Escolar Integrado do Colégio Horizonte — Ensino Fundamental, Médio, Técnico e Área Acadêmica.">
+  <title>Colégio Horizonte — Portal Escolar Integrado</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="a11y-bar" role="region" aria-label="Barra de acessibilidade">
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <div class="a11y-bar" role="region" aria-label="Ferramentas de acessibilidade">
     <div class="container a11y-controls">
-      <span class="dev-badge">Versão v0.5(Em construção)</span>
+      <span class="a11y-label">Acessibilidade:</span>
       <div class="a11y-buttons">
-        <button type="button" id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
-        <button type="button" id="btn-font-reset" aria-label="Tamanho de fonte padrão">A</button>
-        <button type="button" id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
-        <button type="button" id="btn-theme-toggle" aria-label="Alternar modo claro e escuro">
-           Modo Escuro
+        <button type="button" id="btn-font-dec" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button type="button" id="btn-font-reset" aria-label="Restaurar tamanho padrão da fonte">A</button>
+        <button type="button" id="btn-font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" id="btn-theme-toggle" aria-label="Alternar entre modo claro e escuro">
+          🌓 Modo Escuro
+        </button>
+        <button type="button" id="btn-contrast-toggle" aria-label="Alternar modo de alto contraste">
+          👁️ Alto Contraste
         </button>
       </div>
     </div>
@@ -24,157 +30,292 @@
 
   <header class="main-header">
     <div class="container header-content">
-      <a href="index.html" class="logo">Colégio <span>Horizonte</span></a>
-      <nav aria-label="Navegação principal">
+      <a href="index.html" class="logo" aria-label="Página inicial Colégio Horizonte">
+        Colégio <span>Horizonte</span>
+      </a>
+
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">
+        ☰ Menu
+      </button>
+
+      <nav id="primary-nav" class="main-nav" aria-label="Navegação principal">
         <ul class="nav-list">
           <li><a href="#destaques">Destaques</a></li>
-          <li><a href="#ensino">Níveis de Ensino</a></li>
+          <li><a href="#ensino">Segmentos</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#pesquisa">Consulta</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="login.html" class="btn-login">Área do Aluno / Prof</a></li>
+          <li><a href="login.html" class="btn-login">Portal Acadêmico</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section id="destaques" class="carousel-section" aria-label="Destaques escolares">
-      <div class="carousel-container">
-        <div class="carousel-slide active">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" alt="Estudantes em biblioteca universitária e escolar">
-          <div class="carousel-caption">
-            <h2>Matrículas Abertas 2027</h2>
-            <p>Ensino alinhado às competências tecnológicas e socioemocionais.</p>
+  <main id="conteudo-principal">
+    <section id="destaques" class="carousel-section" aria-roledescription="carrossel" aria-label="Destaques institucionais">
+      <div class="container">
+        <div class="carousel-container">
+          <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 de 3">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" alt="Estudantes estudando juntos em biblioteca escolar iluminada">
+            <div class="carousel-caption">
+              <h2>Matrículas Abertas 2027</h2>
+              <p>Formação integral alinhada às competências tecnológicas, científicas e socioemocionais.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 3">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80" alt="Professor orientando estudantes durante atividade prática em sala de aula">
+            <div class="carousel-caption">
+              <h2>Laboratórios de Inovação e Robótica</h2>
+              <p>Aprendizagem baseada em projetos reais desde os anos iniciais do Ensino Fundamental.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 3">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="Equipe de alunos apresentando projeto tecnológico em auditório escolar">
+            <div class="carousel-caption">
+              <h2>Mostra Científica e Feira de Profissões</h2>
+              <p>Integração entre comunidade escolar, famílias e mercado de tecnologia em Brasília.</p>
+            </div>
+          </div>
+
+          <button type="button" class="carousel-btn prev" id="prev-slide" aria-label="Slide anterior">&#10094;</button>
+          <button type="button" class="carousel-btn next" id="next-slide" aria-label="Próximo slide">&#10095;</button>
+
+          <div class="carousel-controls-bar">
+            <div class="carousel-dots" role="tablist" aria-label="Selecionar slide">
+              <button type="button" class="dot active" data-index="0" aria-label="Ir para slide 1" aria-selected="true"></button>
+              <button type="button" class="dot" data-index="1" aria-label="Ir para slide 2" aria-selected="false"></button>
+              <button type="button" class="dot" data-index="2" aria-label="Ir para slide 3" aria-selected="false"></button>
+            </div>
+            <button type="button" id="carousel-pause" class="carousel-pause-btn" aria-label="Pausar rotação automática do carrossel">
+              ⏸ Pausar
+            </button>
           </div>
         </div>
-
-        <div class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80" alt="Professor orientando alunos em sala de aula">
-          <div class="carousel-caption">
-            <h2>Laboratórios de Inovação e Robótica</h2>
-            <p>Aprendizagem prática desde o Ensino Fundamental.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide wip-slide">
-          <div class="carousel-caption">
-            <span class="tag-wip">Em breve</span>
-            <h2>Calendário Acadêmico Interativo</h2>
-            <p>Slide reservado para integração com o cronograma oficial.</p>
-          </div>
-        </div>
-
-        <button type="button" class="carousel-btn prev" id="prev-slide" aria-label="Slide anterior">&#10094;</button>
-        <button type="button" class="carousel-btn next" id="next-slide" aria-label="Próximo slide">&#10095;</button>
       </div>
     </section>
 
     <section id="ensino" class="section-padding">
       <div class="container">
         <h2 class="section-title">Segmentos de Ensino</h2>
-        <p class="section-subtitle">Conheça nossa proposta pedagógica para cada etapa.</p>
+        <p class="section-subtitle">Trilhas pedagógicas estruturadas para cada fase da formação estudantil.</p>
 
         <div class="cards-grid">
           <article class="card">
+            <span class="card-tag">6 a 14 anos</span>
             <h3>Ensino Fundamental</h3>
-            <p>Foco em alfabetização científica, raciocínio lógico e projetos interdisciplinares em período regular ou integral.</p>
-            <span class="card-status done">Conteúdo revisado</span>
+            <p>Alfabetização científica, pensamento computacional, língua inglesa diária e acompanhamento psicopedagógico individualizado.</p>
+            <ul class="card-list">
+              <li>Período matutino, vespertino ou integral</li>
+              <li>Oficinas de lógica e leitura crítica</li>
+            </ul>
           </article>
 
           <article class="card">
+            <span class="card-tag">15 a 17 anos</span>
             <h3>Ensino Médio</h3>
-            <p>Preparação intensiva para vestibulares e ENEM com itinerários formativos em Tecnologia e Ciências.</p>
-            <span class="card-status done">Conteúdo revisado</span>
+            <p>Preparação de alto desempenho para o PAS/UnB, ENEM e vestibulares nacionais com simulados periódicos e mentoria.</p>
+            <ul class="card-list">
+              <li>Itinerários em Ciências de Dados e Humanidades</li>
+              <li>Laboratórios de Física, Química e Biologia</li>
+            </ul>
           </article>
 
-          <article class="card card-wip">
-            <h3>Ensino Técnico Integrado <span class="tag-wip">WIP</span></h3>
-            <p>Grade curricular do curso técnico em Desenvolvimento de Sistemas sendo validada pela coordenação.</p>
-            <span class="card-status pending">Em elaboração</span>
+          <article class="card">
+            <span class="card-tag">Formação Profissional</span>
+            <h3>Técnico em Desenvolvimento</h3>
+            <p>Curso técnico integrado ao Ensino Médio focado em Engenharia de Software, Desenvolvimento Web, Banco de Dados e UI/UX.</p>
+            <ul class="card-list">
+              <li>Projetos integradores semestrais</li>
+              <li>Certificação técnica reconhecida</li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="pesquisa" class="section-padding alt-bg">
+    <section id="diferenciais" class="section-padding alt-bg">
       <div class="container">
-        <h2 class="section-title">Consulta Rápida</h2>
-        
-        <div class="tabs-header" role="tablist">
-          <button type="button" class="tab-btn active" data-tab="disciplinas" role="tab">Disciplinas</button>
-          <button type="button" class="tab-btn" data-tab="avisos" role="tab">Avisos Gerais</button>
-          <button type="button" class="tab-btn" data-tab="editais" role="tab">Editais (Em breve)</button>
+        <h2 class="section-title">Por que escolher o Colégio Horizonte?</h2>
+        <p class="section-subtitle">Infraestrutura acessível e tecnologia a serviço da aprendizagem.</p>
+
+        <div class="cards-grid four-cols">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">♿</div>
+            <h3>Acessibilidade Plena</h3>
+            <p>Campus 100% adaptado e plataformas digitais desenvolvidas segundo as diretrizes internacionais WCAG.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📊</div>
+            <h3>Acompanhamento Real</h3>
+            <p>Portal integrado com boletim digital, frequência diária e comunicação direta entre docentes e responsáveis.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">💻</div>
+            <h3>Cultura Maker</h3>
+            <p>Espaços equipados com kits de robótica, impressão 3D e estações de desenvolvimento de software.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🤝</div>
+            <h3>Acolhimento</h3>
+            <p>Turmas reduzidas e projetos de mediação que promovem empatia, colaboração e saúde emocional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesquisa" class="section-padding">
+      <div class="container">
+        <h2 class="section-title">Central de Consulta</h2>
+        <p class="section-subtitle">Navegue pelas abas e utilize a busca para filtrar disciplinas, avisos ou editais.</p>
+
+        <div class="tabs-header" role="tablist" aria-label="Categorias de consulta">
+          <button type="button" class="tab-btn active" data-tab="disciplinas" role="tab" aria-selected="true" aria-controls="tab-disciplinas">
+            Disciplinas
+          </button>
+          <button type="button" class="tab-btn" data-tab="avisos" role="tab" aria-selected="false" aria-controls="tab-avisos">
+            Avisos Gerais
+          </button>
+          <button type="button" class="tab-btn" data-tab="editais" role="tab" aria-selected="false" aria-controls="tab-editais">
+            Editais e Bolsas
+          </button>
         </div>
 
         <div class="search-box">
-          <label for="search-input" class="sr-only">Pesquisar item</label>
-          <input type="search" id="search-input" placeholder="Digite para filtrar (ex: Matemática, Robótica, Reunião)...">
+          <label for="search-input" class="sr-only">Pesquisar na aba selecionada</label>
+          <input type="search" id="search-input" placeholder="Filtrar por nome, professor, data ou palavra-chave...">
         </div>
 
-        <div id="tab-disciplinas" class="tab-panel active">
-          <div class="cards-grid" id="filter-list">
-            <div class="info-card" data-search="matematica logica calculo">
-              <h4>Matemática e Lógica</h4>
-              <p>Carga horária: 160h/ano • Prof. </p>
-            </div>
-            <div class="info-card" data-search="robotica programacao algoritmos">
-              <h4>Robótica e Algoritmos</h4>
-              <p>Carga horária: 80h/ano • Prof. </p>
-            </div>
-            <div class="info-card" data-search="lingua portuguesa redacao literatura">
-              <h4>Língua Portuguesa e Redação</h4>
-              <p>Carga horária: 160h/ano • Prof. </p>
-            </div>
+        <div id="tab-disciplinas" class="tab-panel active" role="tabpanel">
+          <div class="cards-grid searchable-group">
+            <article class="info-card" data-keywords="matematica logica calculo geometria carlos">
+              <span class="badge">Exatas</span>
+              <h3>Matemática e Raciocínio Lógico</h3>
+              <p><strong>Carga horária:</strong> 160h/ano • <strong>Docente:</strong> Prof. Carlos Mendes</p>
+              <p class="muted">Álgebra, funções, estatística aplicada e resolução de problemas.</p>
+            </article>
+
+            <article class="info-card" data-keywords="robotica programacao algoritmos software ana">
+              <span class="badge">Tecnologia</span>
+              <h3>Algoritmos e Desenvolvimento Web</h3>
+              <p><strong>Carga horária:</strong> 120h/ano • <strong>Docente:</strong> Profa. Ana Beatriz</p>
+              <p class="muted">Lógica de programação, HTML5, CSS3, JavaScript e boas práticas de UI.</p>
+            </article>
+
+            <article class="info-card" data-keywords="lingua portuguesa redacao literatura helena">
+              <span class="badge">Linguagens</span>
+              <h3>Língua Portuguesa e Redação</h3>
+              <p><strong>Carga horária:</strong> 160h/ano • <strong>Docente:</strong> Profa. Helena Souza</p>
+              <p class="muted">Produção textual dissertativo-argumentativa, análise literária e oratória.</p>
+            </article>
           </div>
         </div>
 
-        <div id="tab-avisos" class="tab-panel">
-          <div class="info-card">
-            <h4>Reunião de Pais e Mestres — 3º Trimestre</h4>
-            <p>Data prevista: 28/11/2026 às 08h no auditório principal.</p>
+        <div id="tab-avisos" class="tab-panel" role="tabpanel">
+          <div class="cards-grid searchable-group">
+            <article class="info-card" data-keywords="reuniao pais mestres bimestre novembro">
+              <span class="badge">Calendário</span>
+              <h3>Reunião de Pais e Mestres — 4º Bimestre</h3>
+              <p><strong>Data:</strong> 28/11/2026 às 19h00 • Auditório Principal</p>
+              <p class="muted">Entrega de relatórios de desempenho e orientações para rematrícula 2027.</p>
+            </article>
+
+            <article class="info-card" data-keywords="feira ciencias mostra tecnologica dezembro">
+              <span class="badge">Evento</span>
+              <h3>VII Mostra Tecnológica Horizonte</h3>
+              <p><strong>Data:</strong> 05/12/2026 das 09h00 às 14h00 • Ginásio Poliesportivo</p>
+              <p class="muted">Exposição aberta dos protótipos desenvolvidos pelos alunos do Ensino Médio e Técnico.</p>
+            </article>
           </div>
         </div>
 
-        <div id="tab-editais" class="tab-panel">
-          <div class="wip-placeholder">
-            <p> <strong>Módulo em desenvolvimento:</strong> A listagem dinâmica de editais e bolsas ainda precisa ser conectada.</p>
+        <div id="tab-editais" class="tab-panel" role="tabpanel">
+          <div class="cards-grid searchable-group">
+            <article class="info-card" data-keywords="bolsa merito academico concurso 2027">
+              <span class="badge">Edital 01/2026</span>
+              <h3>Concurso de Bolsas por Mérito Acadêmico</h3>
+              <p><strong>Inscrições:</strong> Até 10/12/2026 • Descontos de até 70%</p>
+              <p class="muted">Destinado a novos estudantes ingressantes no 6º ano do Fundamental e 1ª série do Médio.</p>
+            </article>
+
+            <article class="info-card" data-keywords="monitoria laboratorio informatica bolsa">
+              <span class="badge">Edital 02/2026</span>
+              <h3>Seleção para Monitoria de Laboratório</h3>
+              <p><strong>Inscrições:</strong> Abertas na Secretaria • Alunos do Ensino Técnico</p>
+              <p class="muted">Apoio às aulas práticas de programação e manutenção de ambientes digitais.</p>
+            </article>
           </div>
         </div>
+
+        <p id="search-empty-msg" class="empty-state hidden" role="status">
+          Nenhum registro encontrado para o termo pesquisado nesta aba.
+        </p>
       </div>
     </section>
 
-    <section id="contato" class="section-padding">
-      <div class="container">
-        <h2 class="section-title">Fale com a Secretaria</h2>
-        <p class="section-subtitle">Envie dúvidas sobre matrículas ou agende uma visita. <em>(Validação avançada em desenvolvimento)</em></p>
+    <section id="contato" class="section-padding alt-bg">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h2 class="section-title">Fale com a Secretaria</h2>
+          <p class="section-subtitle">Agende uma visita guiada ou tire dúvidas sobre documentação, transferências e matrículas.</p>
 
-        <form id="contact-form" class="contact-form">
+          <div class="info-list">
+            <p><strong>Endereço:</strong> SEPN 707/907 — Asa Norte, Brasília - DF</p>
+            <p><strong>Atendimento:</strong> Segunda a Sexta, das 07h30 às 18h30</p>
+            <p><strong>Telefone / WhatsApp:</strong> (61) 3333-4400</p>
+            <p><strong>E-mail:</strong> secretaria@colegiohorizonte.edu.br</p>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
           <div class="form-group">
             <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            <input type="text" id="nome" name="nome" required placeholder="Ex: Maria Clara Oliveira" autocomplete="name">
+            <small class="error-text" id="erro-nome"></small>
           </div>
 
-          <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" required placeholder="voce@exemplo.com">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required placeholder="nome@dominio.com" autocomplete="email">
+              <small class="error-text" id="erro-email"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">Telefone *</label>
+              <input type="tel" id="telefone" name="telefone" required placeholder="(61) 99999-9999" maxlength="15" autocomplete="tel">
+              <small class="error-text" id="erro-telefone"></small>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="assunto">Assunto</label>
             <select id="assunto" name="assunto">
-              <option value="matricula">Informações sobre Matrícula</option>
-              <option value="secretaria">Documentos e Secretaria</option>
-              <option value="outro">Outros Assuntos</option>
+              <option value="matricula">Matrículas e Visita Guiada</option>
+              <option value="bolsas">Concurso de Bolsas 2027</option>
+              <option value="secretaria">Histórico e Documentação</option>
+              <option value="acessibilidade">Suporte e Acessibilidade</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="mensagem">Mensagem *</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
+            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Descreva sua solicitação (mínimo 10 caracteres)..."></textarea>
+            <small class="error-text" id="erro-mensagem"></small>
           </div>
 
-          <button type="submit" class="btn-primary">Enviar Mensagem </button>
-          <p id="form-feedback" class="feedback-msg" aria-live="polite"></p>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="lgpd" name="lgpd" required>
+            <label for="lgpd">Concordo com o tratamento dos meus dados para retorno da solicitação (LGPD). *</label>
+          </div>
+          <small class="error-text" id="erro-lgpd"></small>
+
+          <button type="submit" class="btn-primary full-width">Enviar Mensagem</button>
+          <div id="form-feedback" class="feedback-banner hidden" role="alert"></div>
         </form>
       </div>
     </section>
@@ -184,24 +325,30 @@
     <div class="container footer-grid">
       <div>
         <h3>Colégio Horizonte</h3>
-        <p>Educação básica e tecnológica com foco em acessibilidade e inovação.</p>
+        <p>Educação básica e tecnológica com excelência acadêmica, inclusão e compromisso ético.</p>
       </div>
+
       <div>
-        <h4>Links Rápidos</h4>
+        <h4>Navegação</h4>
         <ul>
-          <li><a href="#ensino">Segmentos</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#ensino">Segmentos de Ensino</a></li>
+          <li><a href="#pesquisa">Central de Consulta</a></li>
           <li><a href="login.html">Portal Acadêmico</a></li>
-          <li><a href="#" onclick="return false;">Política de Privacidade (provisorio)</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Contato</h4>
-        <p>Brasília - DF</p>
-        <p>Tel: (61) 0000-0000</p>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#contato">Agendar Visita</a></li>
+          <li><a href="#diferenciais">Política de Acessibilidade</a></li>
+          <li><a href="#conteudo-principal">Voltar ao Topo &uarr;</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Colégio Horizonte — Projeto em Desenvolvimento (DI / CEUB).</p>
+      <p>&copy; 2026 Colégio Horizonte — Projeto Integrador &amp; Desenvolvimento de Interfaces (CEUB).</p>
     </div>
   </footer>
 
