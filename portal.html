@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Acadêmico — Colégio Horizonte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra de Acessibilidade -->
+  <div class="a11y-bar" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container a11y-controls">
+      <span class="a11y-label">Acessibilidade:</span>
+      <div class="a11y-buttons">
+        <button type="button" id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
+        <button type="button" id="btn-font-reset" aria-label="Fonte padrão">A</button>
+        <button type="button" id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
+        <button type="button" id="btn-theme-toggle" aria-label="Alternar tema">🌓 Modo Escuro</button>
+        <button type="button" id="btn-contrast-toggle" aria-label="Alternar alto contraste">👁️ Alto Contraste</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho do Sistema -->
+  <header class="main-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">Colégio <span>Horizonte</span></a>
+      <div class="user-session">
+        <span id="user-greeting" class="user-badge">Carregando sessão...</span>
+        <button type="button" id="btn-logout" class="btn-outline-sm">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="section-title" id="dashboard-title">Painel Acadêmico</h1>
+          <p class="section-subtitle" id="dashboard-desc">Acompanhamento de desempenho e frequência — Ano Letivo 2026.</p>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-label">Média Geral</span>
+            <strong class="kpi-value" id="kpi-media">--</strong>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Frequência Média</span>
+            <strong class="kpi-value" id="kpi-freq">--</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela Responsiva de Notas e Frequência -->
+      <div class="table-container" role="region" aria-label="Tabela de notas e frequência" tabindex="0">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th scope="col" id="col-entity">Disciplina / Estudante</th>
+              <th scope="col">Nota 1 (0–10)</th>
+              <th scope="col">Nota 2 (0–10)</th>
+              <th scope="col">Média Final</th>
+              <th scope="col">Frequência (%)</th>
+              <th scope="col">Situação</th>
+            </tr>
+          </thead>
+          <tbody id="grades-tbody">
+            <!-- Preenchido dinamicamente via script.js conforme o perfil -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="prof-actions" class="prof-actions hidden">
+        <button type="button" id="btn-save-grades" class="btn-primary">Salvar Alterações no Diário</button>
+        <span id="save-status" class="feedback-inline" aria-live="polite"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Colégio Horizonte — Módulo de Gestão Escolar (MVP).</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
