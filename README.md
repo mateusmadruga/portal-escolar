@@ -1,5 +1,5 @@
 # Colégio Horizonte — Portal Escolar Integrado
-Aplicação web desenvolvida como Projeto Integrador** do curso de Ciência da Computação — **CEUB (2/2026)**.
+Aplicação web desenvolvida como **Projeto Integrador** do curso de Ciência da Computação — **CEUB (2/2026)**.
 
 ## Visão Geral do Sistema
 
