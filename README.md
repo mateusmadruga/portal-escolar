@@ -1,50 +1,26 @@
-# portal-escolar-di-
 # Colégio Horizonte — Portal Escolar Integrado
+Aplicação web desenvolvida como projeto unificado para as disciplinas de **Desenvolvimento de Interfaces** e **Engenharia de Software (Projeto Integrador)** do curso de Ciência da Computação — **CEUB (2/2026)**.
 
-> Primeiro Commit (v0.5): Estruturação inicial do front-end institucional, barra de acessibilidade funcional e protótipo da tela de acesso acadêmico.
+## Visão Geral do Sistema
 
-O sistema une uma vitrine institucional pública: divulgação de segmentos de ensino, eventos, busca de disciplinas e contato. A uma área restrita de gestão acadêmica para alunos e professores.
+O **Portal Escolar Integrado** combina o portal institucional público da escola com o ambiente acadêmico restrito para alunos e professores:
 
-## Status Atual do Desenvolvimento (v0.5)
-### Implementado neste commit
-- Barra de Acessibilidade Persistente: Alternância entre Modo Claro e Modo Escuro e controle dinâmico de tamanho de fonte (A-, A, A+) com armazenamento das preferências no "localStorage".
-- Paleta de Cores Contrastante: Variáveis CSS configuradas para atender aos critérios de contraste da WCAG (nível AA/AAA) em ambos os temas.
-- Página Institucional (index.html): Cabeçalho de navegação, carrossel de destaques, cartões explicativos de segmentos de ensino, sistema de abas com filtro em tempo real para disciplinas, formulário de contato e rodapé.
-- Protótipo de Login (login.html): Tela dedicada para seleção de perfil (Aluno/Professor) e autenticação.
+1. **Portal Institucional (`index.html`):** Carrossel acessível com controle de pausa, cartões explicativos de segmentos e diferenciais, central de consulta com abas e filtro em tempo real, formulário de contato validado com máscara e rodapé institucional.
+2. **Autenticação (`login.html`):** Tela de acesso com seleção de perfil (`Aluno` ou `Professor`), visualização de senha e atalhos de preenchimento para demonstração.
+3. **Painel Acadêmico (`portal.html`):** Boletim digital para visualização do aluno e diário de classe interativo para o professor lançar notas e frequência com cálculo automático de média e situação (`Aprovado`, `Recuperação`, `Reprovado`).
 
-### Em andamento (`WIP` / `TODO`)
-- Substituir conteúdos provisórios.
-- Adicionar indicadores visuais e rotação automática pausável no carrossel de imagens.
-- Refinar media queries para dispositivos móveis com telas menores que 480px.
-- Integrar os formulários de contato e login com a API back-end em Python.
+## Paleta de Cores e Conformidade WCAG
 
-## Estrutura de Arquivos
-portal-escolar-di/
+| Tema | Elemento | Código HEX | Relação de Contraste | Nível WCAG |
+| :--- | :--- | :--- | :--- | :--- |
+| **Modo Claro** | Texto (`#0F172A`) sobre Fundo (`#F8FAFC`) | `#0F172A` / `#F8FAFC` | `17.9 : 1` | AAA |
+| **Modo Claro** | Texto (`#FFFFFF`) sobre Primária (`#1E3A8A`) | `#FFFFFF` / `#1E3A8A` | `10.3 : 1` | AAA |
+| **Modo Escuro** | Texto (`#F1F5F9`) sobre Fundo (`#0F172A`) | `#F1F5F9` / `#0F172A` | `16.5 : 1` | AAA |
+| **Modo Escuro** | Texto (`#0F172A`) sobre Primária (`#60A5FA`) | `#0F172A` / `#60A5FA` | `8.4 : 1` | AAA |
+| **Alto Contraste** | Texto (`#FFFFFF`) sobre Fundo (`#000000`) | `#FFFFFF` / `#000000` | `21.0 : 1` | AAA |
 
-├── index.html      -Página principal (vitrine institucional e consulta)
-
-├── login.html      -Página de acesso ao portal acadêmico
-
-├── style.css       -Definição de variáveis CSS, temas claro/escuro e layout
-
-├── script.js       -Lógica de acessibilidade, carrossel, abas e simulações
-
-└── README.md       -Documentação do projeto
-
-Nos próximos Commits, serão adicionadas a pasta "docs/" com diagramas BPMN/UML e a estrutura do back-end.
-
-## Passo a Passo da Construção (Versão Inicial)
-
-1. Planejamento Visual e Paleta WCAG: Definição das variáveis CSS em root e data-theme="dark", priorizando tons de azul-marinho (#1E3A8A) e verde-petróleo (#0F766E) para transmitir confiança e foco educacional, garantindo alto contraste entre texto e plano de fundo.
-2. Marcação Semântica (HTML5): Estruturação das páginas utilizando tags semânticas para compatibilidade com leitores de tela.
-3. Camada de Acessibilidade (JS): Implementação dos controles de escala tipográfica e alternância de tema com persistência no navegador do usuário.
-4. Componentes Interativos: Criação da navegação manual do carrossel, alternância de painéis nas abas de pesquisa, filtro dinâmico por palavras-chave e feedback simulado nos formulários.
-
-## Próximos Passos
-
-- 1: Finalização dos componentes visuais pendentes, ajustes finos de responsividade e revisão das heurísticas de Nielsen.
-- 2: Conexão com o back-end e implementação da suíte de testes automatizados.
-
-## Autor
-
-Desenvolvido por Mateus Madruga — Segundo semestre em Ciência da Computação (CEUB).
+### Recursos de Acessibilidade Implementados
+- Controle de escala tipográfica (`13px` a `22px`) com persistência em `localStorage`.
+- Alternância entre **Modo Claro**, **Modo Escuro** e **Alto Contraste**.
+- Link de salto direto ao conteúdo principal (`skip-link`) e foco visível (`:focus-visible`) para navegação por teclado.
+- Botão explícito de **Pausar/Retomar** no carrossel automático (critério WCAG 2.2.2).
